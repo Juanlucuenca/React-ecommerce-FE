@@ -1,4 +1,5 @@
-import ProductCard from "@/components/ProductCard";
+// import ProductCard from "@/components/ProductCard";
+import ProductLayout from "@/components/ProductsLayout";
 import { Separator } from "@/components/ui/separator";
 import HeroCarousel from "../components/HeroCarousel";
 
@@ -7,7 +8,7 @@ export default function Home() {
     <>
       <HeroCarousel></HeroCarousel>
       <Separator className="my-10" orientation="horizontal"></Separator>
-      <div>
+      <div className="mb-5">
         <h2 className="text-3xl font-bold traking-tight">
           Productos destacados
         </h2>
@@ -22,7 +23,7 @@ export default function Home() {
           y mucho mas
         </p>
       </div>
-      <ProductCard />
+      <ProductLayout renderType={"featured"}></ProductLayout>
     </>
   );
 }
