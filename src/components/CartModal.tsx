@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetClose,
@@ -7,12 +8,14 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
-import { Button } from "./ui/button"
+} from "@/components/ui/sheet";
 
-export default function CartModal({isOpen}: {isOpen: boolean}) {
+export function CartModal() {
   return (
-    <Sheet open={isOpen}>
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="outline">Open</Button>
+      </SheetTrigger>
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Edit profile</SheetTitle>
@@ -27,5 +30,5 @@ export default function CartModal({isOpen}: {isOpen: boolean}) {
         </SheetFooter>
       </SheetContent>
     </Sheet>
-  )
+  );
 }
