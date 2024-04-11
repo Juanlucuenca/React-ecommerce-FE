@@ -1,4 +1,3 @@
-import { products } from "@/api/data";
 import {
   Card,
   CardContent,

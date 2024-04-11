@@ -10,7 +10,13 @@ import { BiSolidOffer } from "react-icons/bi";
 import { IoMdLogIn } from "react-icons/io";
 import { Button } from "./ui/button";
 
-export default function Navbar() {
+interface Props {
+  toggleCart: () => void;
+
+}
+
+export default function Navbar({toggleCart}: Props) {
+
   return (
     <>
       <NavigationMenu>
@@ -47,7 +53,7 @@ export default function Navbar() {
             </NavigationMenuItem>
           </NavigationMenuList>
           <NavigationMenuList>
-            <NavigationMenuItem>
+            <NavigationMenuItem onClick={toggleCart}>
               <NavigationMenuLink>
                 <Button variant="outline" size="icon">
                   <AiOutlineShoppingCart className="h-4 w-4" />
