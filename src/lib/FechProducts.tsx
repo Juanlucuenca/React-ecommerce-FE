@@ -1,10 +1,9 @@
-// api.js
-import { products } from "../api/data";
+import { products } from "../data/data";
 
 export const fetchProducts = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(products);
-    }, 1000);
+    }, 500);
   });
 };

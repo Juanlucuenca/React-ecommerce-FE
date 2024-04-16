@@ -1,5 +1,5 @@
+import { fetchProducts } from "@/lib/FechProducts";
 import { Product } from "@/models/Product";
-import { fetchProducts } from "@/utils/FechProducts";
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 
@@ -20,7 +20,7 @@ export default function ProductLayout({ renderType }: Props) {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 place-items-center">
       {products.map((product: Product) =>
         renderType === "featured" && product.discount > 0 ? (
           <ProductCard product={product} />
