@@ -15,7 +15,7 @@ export default function Home() {
           Mira la lista de productos destcados con descuentos increibles.
         </p>
       </div>
-      <ProductLayout renderType={"featured"}></ProductLayout>
+      <ProductLayout renderType={"featured"} limit={4}></ProductLayout>
     </>
   );
 }

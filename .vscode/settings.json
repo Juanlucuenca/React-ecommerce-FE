@@ -1,0 +1,4 @@
+{
+  "exportall.config.folderListener": ["/src/routes"],
+  "exportall.config.relExclusion": ["/src/routes"]
+}

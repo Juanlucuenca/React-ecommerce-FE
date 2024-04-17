@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { CartContext } from "@/context/cart";
-import type { CartItem } from "@/models/CartItem";
+import type { CartItem } from "@/types/CartItem";
 import { useContext } from "react";
 import { BsCartCheckFill, BsCartDashFill } from "react-icons/bs";
 import { Button } from "./ui/button";

@@ -1,5 +1,5 @@
-import { CartItem } from "@/models/CartItem";
-import { Product } from "@/models/Product";
+import { CartItem } from "@/types/CartItem";
+import { Product } from "@/types/Product";
 import { createContext, useEffect, useState } from "react";
 
 // Define un tipo para el valor del contexto

@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { CartContext } from "@/context/cart";
-import { Product } from "@/models/Product";
+import { Product } from "@/types/Product";
 import { useContext } from "react";
 import { BiSolidCartAdd } from "react-icons/bi";
 import { Badge } from "./ui/badge";
@@ -32,11 +32,14 @@ export default function ProductCard({ product }: Props) {
       </CardHeader>
       <CardContent>
         <div className="flex space-x-2">
-          {product.badges.map((badge, index) => (
-            <Badge key={index} variant="secondary">
-              {badge}
-            </Badge>
-          ))}
+          {product.badges!.map(
+            (badge, index) =>
+              index < 2 && (
+                <Badge key={index} variant="secondary">
+                  {badge}
+                </Badge>
+              )
+          )}
         </div>
         <CardTitle>{[product.name]}</CardTitle>
         <CardDescription> $ {product.price}</CardDescription>
