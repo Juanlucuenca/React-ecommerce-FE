@@ -70,7 +70,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const getCartTotal = () => {
-    return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    return cartItems.reduce(
+      (acc, item) => acc + item.price! * item.quantity,
+      0
+    );
   };
 
   const clearCart = () => {

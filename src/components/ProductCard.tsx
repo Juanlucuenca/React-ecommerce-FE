@@ -22,6 +22,11 @@ export default function ProductCard({ product }: Props) {
   const { addToCart } = useContext(CartContext);
   const { toast } = useToast();
 
+  const productDiscount = product.price! * (product.discount! / 100);
+  const productPriceWithDiscount = (product.price! - productDiscount).toFixed(
+    2
+  );
+
   return (
     <Card className="w-[240px] h-[370px] flex flex-col items-center justify-around">
       <CardHeader>
@@ -42,7 +47,18 @@ export default function ProductCard({ product }: Props) {
           )}
         </div>
         <CardTitle>{[product.name]}</CardTitle>
-        <CardDescription> $ {product.price}</CardDescription>
+        {product.discount ? (
+          <>
+            <CardDescription>
+              <b>Discount</b> $ {productPriceWithDiscount}
+            </CardDescription>
+            <CardDescription>
+              <b>Original</b>$ {product.price}
+            </CardDescription>
+          </>
+        ) : (
+          <CardDescription>$ {product.price}</CardDescription>
+        )}
       </CardContent>
       <CardFooter>
         <Button

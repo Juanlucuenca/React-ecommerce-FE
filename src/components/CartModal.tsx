@@ -16,7 +16,7 @@ import CartItem from "./CartItem";
 import { useToast } from "./ui/use-toast";
 
 export function CartModal() {
-  const { cartItems, clearCart } = useContext(CartContext);
+  const { cartItems, clearCart, getCartTotal } = useContext(CartContext);
   const { toast } = useToast();
 
   return (
@@ -32,29 +32,38 @@ export function CartModal() {
           <SheetDescription>
             Aqui puedes ver los productos de tu carrito.
           </SheetDescription>
+          <SheetDescription>
+            Precio total del carrito:{" "}
+            <b className="text-green-700">
+              {" "}
+              {cartItems.length === 0 ? "Compra algo" : getCartTotal()}
+            </b>
+          </SheetDescription>
         </SheetHeader>
-        <div className="flex flex-col h-[750px]">
+        <div className="flex flex-col max-h-[750px] min-h-[750px] overflow-y-auto">
           {cartItems.map((item) => (
             <CartItem key={item.id} cartItem={item} />
           ))}
         </div>
         <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Finalizar Compra</Button>
-          </SheetClose>
           {cartItems.length === 0 || (
-            <Button
-              variant={"destructive"}
-              onClick={() => {
-                toast({
-                  title: `Vaciaste el carrito`,
-                  variant: "destructive",
-                });
-                clearCart();
-              }}
-            >
-              Vaciar carrito
-            </Button>
+            <>
+              <SheetClose asChild>
+                <Button type="submit">Finalizar Compra</Button>
+              </SheetClose>
+              <Button
+                variant={"destructive"}
+                onClick={() => {
+                  toast({
+                    title: `Vaciaste el carrito`,
+                    variant: "destructive",
+                  });
+                  clearCart();
+                }}
+              >
+                Vaciar carrito
+              </Button>
+            </>
           )}
         </SheetFooter>
       </SheetContent>
